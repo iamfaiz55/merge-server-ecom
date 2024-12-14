@@ -10,7 +10,7 @@ router
     .post("/update-password", userController.userUpdatePassword)
     .delete("/delete-address/:addressId", userController.deleteAddress)
     .get("/get-address/:id", userController.getAddresses)
-    .post("/add-address",userProtected, userController.addAddress)
+    .post("/add-address", userController.addAddress)
     .post("/update-address", userController.updateAddress)
 
 
