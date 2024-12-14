@@ -41,16 +41,16 @@ exports.loginUser = async (req, res) => {
         }
 
 
-        // const token = jwt.sign({ userId: result._id }, process.env.JWT_KEY, { expiresIn: "1h" });
+        const token = jwt.sign({ userId: result._id }, process.env.JWT_KEY, { expiresIn: "1h" });
 
-        // res.cookie("user", token, {
-        //     httpOnly: true,         
-        //     secure: false, 
-        //     maxAge: 840000000,    
-        // });
+        res.cookie("user", token, {
+            httpOnly: true,         
+            secure: false, 
+            maxAge: 840000000,    
+        });
 
 
-        console.log("Cookies:", JSON.stringify(req.cookies.user));
+        // console.log("Cookies:", JSON.stringify(req.cookies.user));
 
 
         res.json({
