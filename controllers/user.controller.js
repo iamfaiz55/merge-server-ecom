@@ -74,6 +74,7 @@ exports.deleteAllCart = asyncHandler(async(req, res)=> {
 
 exports.addAddress = asyncHandler(async (req, res) => {
     const {
+        userId,
         email,
         pincode,
         city,
@@ -87,8 +88,7 @@ exports.addAddress = asyncHandler(async (req, res) => {
     } = req.body;
 
 
-const userId = req.loggedInUser
-console.log("uuuuu", userId);
+
 
     let user = await User.findById(userId);
 // console.log(user);
