@@ -2,6 +2,7 @@ const asyncHandler = require("express-async-handler")
 const Order = require("../models/Order")
 const User = require("../models/User")
 const Address = require("../models/Address")
+const Cart = require("../models/Cart")
 
 
 exports.userGetAllOrders = asyncHandler(async (req, res) => {
