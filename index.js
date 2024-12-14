@@ -11,7 +11,7 @@ app.use(express.static("public"))
 app.use(express.json())
 app.use(cookieparser())
 app.use(cors({
-    origin: true,
+    origin: "*",
     credentials: true 
 }
 ))
