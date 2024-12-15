@@ -10,11 +10,24 @@ const app = express()
 app.use(express.static("public"))
 app.use(express.json())
 app.use(cookieparser())
+const allowedOrigins = [
+    'http://localhost:3000',
+    'http://localhost:8085',
+    'http://localhost:3002',
+    'http://localhost:8080',
+];
+
+
 app.use(cors({
-    origin: "*",
-    credentials: true 
-}
-))
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true
+}));
 
 app.use("/api/admin", require("./routes/admin.routes"))
 app.use("/api/auth", require("./routes/auth.route"))
