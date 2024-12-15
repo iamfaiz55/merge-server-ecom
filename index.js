@@ -14,13 +14,10 @@ app.use(cookieparser())
 
 
 app.use(cors({
-    origin:"*",
+    origin:"http://localhost:8085",
     credentials: true
 }));
-app.use((req, res, next) => {
-    res.removeHeader('Access-Control-Allow-Origin'); 
-    next();
-  });
+
   
 app.use("/api/admin", require("./routes/admin.routes"))
 app.use("/api/auth", require("./routes/auth.route"))
