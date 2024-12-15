@@ -13,11 +13,19 @@ app.use(cookieparser())
 
 
 
-app.use(cors({
-    // origin:"http://localhost:8012",
-    origin: true,
-    credentials: true
-}));
+const corsOptions = {
+    origin: function (origin, callback) {
+      // Allow all origins dynamically
+      if (origin) {
+        callback(null, origin);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
+  };
+  
+  app.use(cors(corsOptions));
 
   
 app.use("/api/admin", require("./routes/admin.routes"))
