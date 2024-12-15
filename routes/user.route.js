@@ -2,6 +2,7 @@ const router = require("express").Router()
 // const { userProtected } = require("../middleware/userProtected")
 const userController = require("./../controllers/user.controller")
 const adminController= require("./../controllers/admin.controller")
+const publicController= require("./../controllers/public.controller")
 
 router
     .get("/order/:id", userController.userGetAllOrders)
@@ -13,6 +14,9 @@ router
     .get("/get-address/:id", userController.getAddresses)
     .post("/add-address", userController.addAddress)
     .post("/update-address", userController.updateAddress)
+
+    .get("/all-products", publicController.publicGetAllProducts)
+    .get("/product-details/:id", publicController.publicGetProductDetails)
 
 
     .post("/add-product", userController.addCart)

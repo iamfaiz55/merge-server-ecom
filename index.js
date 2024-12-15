@@ -7,7 +7,7 @@ require("dotenv").config({ path: ".env" })
 
 
 const app = express()
-app.use(express.static("public"))
+// app.use(express.static("public"))
 app.use(express.json())
 app.use(cookieparser())
 
@@ -18,13 +18,12 @@ app.use(cors({
     credentials: true
 }));
 app.use((req, res, next) => {
-    res.removeHeader('Access-Control-Allow-Origin'); // Remove any conflicting headers
+    res.removeHeader('Access-Control-Allow-Origin'); 
     next();
   });
   
 app.use("/api/admin", require("./routes/admin.routes"))
 app.use("/api/auth", require("./routes/auth.route"))
-app.use("/api/public", require("./routes/public.route"))
 app.use("/api/user", require("./routes/user.route"))
 
 app.use("*", (req, res) => {
