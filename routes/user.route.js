@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const { userProtected } = require("../middleware/userProtected")
+// const { userProtected } = require("../middleware/userProtected")
 const userController = require("./../controllers/user.controller")
 const adminController= require("./../controllers/admin.controller")
 

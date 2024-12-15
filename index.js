@@ -10,17 +10,11 @@ const app = express()
 app.use(express.static("public"))
 app.use(express.json())
 app.use(cookieparser())
-const allowedOrigins = [
-    'http://localhost:3000',
-    'http://localhost:8085',
-    'http://localhost:3002',
-    'http://localhost:8080',
-];
 
 
 
 app.use(cors({
-    origin:'http://localhost:3000',
+    origin:true,
     credentials: true
 }));
 
