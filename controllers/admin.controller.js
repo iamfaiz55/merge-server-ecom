@@ -62,20 +62,11 @@ exports.getAllOrder = asyncHandler(async (req, res) => {
     const result = await Order.find().sort({ createdAt: -1 }).populate("user", { password: 0, active: 0, createdAt: 0, updatedAt: 0, __v: 0 }).populate("products.product")
     res.json({ message: "Order Fetch Success", result })
 })
-exports.getOrdersByUserId = asyncHandler(async (req, res) => {
-    const result = await Order.find({ user: '6687ad9eea288e9a29112b89' }).populate("products.product")
-    res.json({ message: "Order By User ID Fetch Success", result })
-})
+
 exports.getOrderDetails = asyncHandler(async (req, res) => {
     res.json({ message: "Order details Fetch Success" })
 })
-exports.cancelOrder = asyncHandler(async (req, res) => {
-    const { id } = req.params
-    console.log(id);
 
-    await Order.findByIdAndDelete(id)
-    res.json({ message: "Order cancel Success" })
-})
 exports.updateOrderStatus = asyncHandler(async (req, res) => {
     const { id } = req.params
     const { status } = req.body
