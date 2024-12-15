@@ -43,7 +43,7 @@ exports.addCart = asyncHandler(async (req, res) => {
             { $inc: { quantity: 1 } }
         );
     } else {
-       await Cart.create({userId:uId, productId:pId, quantity:1, varientId})
+       await Cart.create({userId:uId, productId:pId, quantity:1})
     }
 
     res.json({ message: 'Cart Add successfully' });
