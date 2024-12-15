@@ -7,7 +7,7 @@ router
     .get("/order/:id", userController.userGetAllOrders)
     .get("/order-details/:id", userController.userGetOrderDetails)
     .post("/place-order", userController.userPlaceOrder)
-    // .put("/order-cancel/:id", userController.userCancelOrder)
+    .delete("/cancel-order/:id", userController.userCancelOrder)
     .post("/update-password", userController.userUpdatePassword)
     .delete("/delete-address/:addressId", userController.deleteAddress)
     .get("/get-address/:id", userController.getAddresses)
@@ -19,8 +19,7 @@ router
     .delete("/delete-product/:id", userController.deleteItemFromCart)
     .delete("/delete-all-product/:userId", userController.deleteAllCart)
     .get("/get-all-product/:uid", userController.getAllCartItems)
-
-     .delete("/cancel-order/:id", adminController.cancelOrder)
+    //  .delete("/cancel-order/:id", adminController.cancelOrder)
      .put("/return-order/:id", adminController.updateReturnRequest)
      
 

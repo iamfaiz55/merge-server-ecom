@@ -17,11 +17,10 @@ router
 
     // order
     .get("/orders", adminController.getAllOrder)
-    .get("/orders/getOrdersByUserId", adminController.getOrdersByUserId)
+    // .get("/orders/getOrdersByUserId", adminController.getOrdersByUserId)
     .get("/orders-details/:orderDetailId", adminController.getOrderDetails)
-    .delete("/orders/cancel-order/:id", adminController.cancelOrder)
-    .put("/orders/return-order/:id", adminController.updateReturnRequest)
-    .put("/update-order-status/:id", adminController.updateOrderStatus)
+   
+    
     // .get("/all-users/", adminController.getAllUsers)
 
 module.exports = router
